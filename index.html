@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kioku — Japanese Vocabulary</title>
+    <title>Kioku — Learn Japanese from your Lock Screen</title>
+    <meta name="description" content="A new Japanese word on your Lock Screen every day. No flashcards, no study sessions — just glance and learn. JLPT N5 through N1.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -11,30 +12,174 @@
             color: #1a1c1c;
             background: #faf8f5;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
-        .container { max-width: 640px; margin: 0 auto; padding: 60px 24px; }
-        h1 { font-size: 2rem; margin-bottom: 8px; }
-        .subtitle { color: #8a8a8a; margin-bottom: 48px; }
-        nav { display: flex; gap: 24px; margin-bottom: 48px; }
-        nav a { color: #b20024; text-decoration: none; font-weight: 500; }
-        nav a:hover { text-decoration: underline; }
-        h2 { font-size: 1.25rem; margin: 32px 0 12px; }
-        p, li { color: #444; margin-bottom: 12px; }
-        ul { padding-left: 20px; }
-        a { color: #b20024; }
-        .footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid #e8e0d4; color: #8a8a8a; font-size: 0.875rem; }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 24px 60px;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .hero h1 span { color: #b20024; }
+        .hero .tagline {
+            font-size: 1.125rem;
+            color: #666;
+            margin-bottom: 32px;
+            max-width: 440px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .app-store-badge {
+            display: inline-block;
+            transition: opacity 0.2s;
+        }
+        .app-store-badge:hover { opacity: 0.8; }
+        .app-store-badge img { height: 54px; }
+
+        /* Screenshots */
+        .screenshots {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
+            display: flex;
+            gap: 20px;
+            padding: 40px 24px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+        .screenshot {
+            flex-shrink: 0;
+            scroll-snap-align: center;
+            width: 220px;
+            border-radius: 24px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        .screenshot img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Features */
+        .features {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 0 24px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        .feature h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .feature p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 24px;
+            border-top: 1px solid #e8e0d4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .footer-left { color: #8a8a8a; font-size: 0.875rem; }
+        .footer-links { display: flex; gap: 20px; }
+        .footer-links a {
+            color: #8a8a8a;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        .footer-links a:hover { color: #b20024; }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .hero { padding: 48px 20px 40px; }
+            .hero h1 { font-size: 2rem; }
+            .features { grid-template-columns: 1fr; gap: 24px; }
+            .screenshots { justify-content: flex-start; padding-left: 20px; }
+            .screenshot { width: 180px; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Kioku</h1>
-        <p class="subtitle">Learn Japanese from your Lock Screen.</p>
-        <nav>
-            <a href="/kioku-site/privacy">Privacy Policy</a>
+    <!-- Hero -->
+    <div class="hero">
+        <img src="images/app-icon.png" alt="Kioku" class="app-icon">
+        <h1>Learn Japanese<br><span>without trying.</span></h1>
+        <p class="tagline">A new word on your Lock Screen every day. No flashcards, no study sessions — just glance and learn.</p>
+        <a href="https://apps.apple.com/app/kioku/id6744145696" class="app-store-badge">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
+    </div>
+
+    <!-- Screenshots -->
+    <div class="screenshots">
+        <div class="screenshot">
+            <img src="images/screenshot-lockscreen.png" alt="Kioku Lock Screen widget">
+        </div>
+        <div class="screenshot">
+            <img src="images/screenshot-home.png" alt="Kioku word of the day">
+        </div>
+        <div class="screenshot">
+            <img src="images/screenshot-library.png" alt="Kioku vocabulary library">
+        </div>
+    </div>
+
+    <!-- Features -->
+    <div class="features">
+        <div class="feature">
+            <h3>Lock Screen Widget</h3>
+            <p>Kanji, reading, and meaning — right on your Lock Screen. No app to open.</p>
+        </div>
+        <div class="feature">
+            <h3>Your Schedule</h3>
+            <p>1 to 4 words per day at times that work for you. 8 AM, noon, evening.</p>
+        </div>
+        <div class="feature">
+            <h3>JLPT N5 through N1</h3>
+            <p>670+ beginner words free. Unlock 8,000+ across all five levels with Pro.</p>
+        </div>
+        <div class="feature">
+            <h3>Fully Offline</h3>
+            <p>No internet, no account, no ads. All data stays on your device.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-left">&copy; 2026 Hibana Studio</div>
+        <div class="footer-links">
+            <a href="/kioku-site/privacy">Privacy</a>
             <a href="/kioku-site/support">Support</a>
-        </nav>
-        <p>Kioku places a new Japanese word on your Lock Screen widget every day. No flashcards, no study sessions — just glance and learn.</p>
-        <div class="footer">&copy; 2026 Hibana Studio</div>
+        </div>
     </div>
 </body>
 </html>
